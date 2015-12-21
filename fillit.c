@@ -6,13 +6,13 @@
 /*   By: tbenoist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 09:52:51 by tbenoist          #+#    #+#             */
-/*   Updated: 2015/12/21 14:29:41 by tbenoist         ###   ########.fr       */
+/*   Updated: 2015/12/21 16:27:02 by tbenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #define BUFF_SIZE 21
-
+//verification de la validite du fichier
 int		check(char *buf)
 {
 	int		i;
@@ -24,7 +24,7 @@ int		check(char *buf)
 	col = 0;
 	while ((buf[i] == '.' || buf[i] == '\n' || buf[i] == '#') && i < 20)
 	{
-		if (buf[i] == '.' || bif[i] == '#');
+		if (buf[i] == '.' || buf[i] == '#')
 			col++;
 		if (buf[i] == '\n' && buf[i - 1] != '\n')
 		{
@@ -39,7 +39,7 @@ int		check(char *buf)
 		return (0);
 	return (1);
 }
-
+//creation de la map de sortie
 char	*map_create(int size)
 {
 	char	*map;
@@ -58,24 +58,20 @@ char	*map_create(int size)
 	map[i] = '\0';
 	return (map);
 }
-
+//test des possibilites
 int		resolv(char *map, t_piece	*list, int pos)
 {
 	int		i;
+	char	*tmp;
 
+	if (*list = NULL)
+		return (0);
 	i = 0;
-	while(i + ft_strlen(*list->shape) < ft_strlen(map))
-	{
-		if (map[i] == '.' && place_piece(map, *list))
-		{
-			i += ft_strlen(*list->shape)
-		}
-		else
-			i++;
-	}
+	tmp = map;
+	while
 }
-
-int		place_piece(char **map,t_piece *list)
+//place une piece, ou pas
+int		place_piece(char *map,t_piece *list)
 {
 	int		i;
 
@@ -92,7 +88,7 @@ int		place_piece(char **map,t_piece *list)
 	}
 	return (1);
 }
-
+//lit le fichier, creer la liste des pieces.
 int		main(int argc, char **argv)
 {
 	int		fd;
