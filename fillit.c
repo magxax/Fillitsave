@@ -6,7 +6,7 @@
 /*   By: tbenoist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 09:52:51 by tbenoist          #+#    #+#             */
-/*   Updated: 2015/12/21 11:24:21 by tbenoist         ###   ########.fr       */
+/*   Updated: 2015/12/21 14:29:41 by tbenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,40 @@ char	*map_create(int size)
 	return (map);
 }
 
-char	*resolv(char *map)
+int		resolv(char *map, t_piece	*list, int pos)
 {
+	int		i;
 
+	i = 0;
+	while(i + ft_strlen(*list->shape) < ft_strlen(map))
+	{
+		if (map[i] == '.' && place_piece(map, *list))
+		{
+			i += ft_strlen(*list->shape)
+		}
+		else
+			i++;
+	}
 }
+
+int		place_piece(char **map,t_piece *list)
+{
+	int		i;
+
+	i = 0;
+	while (list->shape[i])
+	{
+		if (list->shape[i] != '.')
+		{
+			if(map[i] != '.')
+				return (0);
+			map[i] = list->letter;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int		main(int argc, char **argv)
 {
 	int		fd;
