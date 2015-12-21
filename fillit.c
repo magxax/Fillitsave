@@ -6,7 +6,7 @@
 /*   By: tbenoist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/21 09:52:51 by tbenoist          #+#    #+#             */
-/*   Updated: 2015/12/21 11:03:56 by tbenoist         ###   ########.fr       */
+/*   Updated: 2015/12/21 11:24:21 by tbenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,29 @@ int		check(char *buf)
 	return (1);
 }
 
+char	*map_create(int size)
+{
+	char	*map;
+	int		i;
+	
+	if(!(map = (char*)malloc(sizeof(char) * ((size + 1) * (size) + 1))))
+		return (NULL);
+	i = 0;
+	while (i < ((size + 1) * (size) + 1))
+	{
+		map[i] = '.';
+		if (i == (size * (i / size)))
+			map[i] = '\n';
+		i++;
+	}
+	map[i] = '\0';
+	return (map);
+}
+
+char	*resolv(char *map)
+{
+
+}
 int		main(int argc, char **argv)
 {
 	int		fd;
